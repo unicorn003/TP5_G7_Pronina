@@ -2,13 +2,12 @@ import java.time.Duration;
 import java.time.Instant;
 import java.util.Random;
 
-import static java.lang.Long.SIZE;
-
 public class SortClass {
     private static int[] tableau;
     Instant start;
     // Des instructions qui peuvent prendre du temps
     Instant end;
+    static int SIZE = Integer.MAX_VALUE / 1000 ;
 
     public static void initialiserTableau() {
         Instant start = Instant.now();
