@@ -28,6 +28,11 @@ public class SortClass {
         System.arraycopy(tableau, 0, tableauSelection, 0, SIZE);
         return  tableauSelection;
     }
+    public static void swap(int[] tableauSelection, int i, int j){
+        int temp = tableauSelection[i];
+        tableauSelection[i] = tableauSelection[j];
+        tableauSelection[j]= temp;
+    }
     public static void triSelection(int[] tableauSelection){
         Instant start = Instant.now();
         Instant end = Instant.now();
@@ -37,6 +42,15 @@ public class SortClass {
     }
     public static void triInsertion(int[] tableauSelection){
         Instant start = Instant.now();
+        for (int i = 1; i< tableauSelection.length; i++){
+            int k = tableauSelection[i];
+            int j = i - 1;
+            while ( j >= 0 && tableauSelection[j] > k) {
+                tableauSelection[ j+1 ] = tableauSelection[j];
+                j = j -1;
+            }
+            tableauSelection[j+1] = k;
+        }
         Instant end = Instant.now();
         long duration = Duration.between(start, end).toMillis();
         System.out.println("Le tri par insertion a pris " + duration + " ms");
@@ -54,11 +68,6 @@ public class SortClass {
         long duration = Duration.between(start, end).toMillis();
         System.out.println("Le tri par bulles a pris " + duration + " ms");
 
-    }
-    public static void swap(int[] tableauSelection, int i, int j){
-        int temp = tableauSelection[i];
-        tableauSelection[i] = tableauSelection[j];
-        tableauSelection[j]= temp;
     }
     public static int  partition(int[] tableauSelection,  int indGauche, int indDroit){
         int pivot = tableauSelection[indDroit];
@@ -83,7 +92,6 @@ public class SortClass {
         long duration = Duration.between(start, end).toMillis();
         System.out.println("Le tri par quickSort a pris " + duration + " ms");
     }
-
     public static void triJava(int[] tableauSelection){
         Instant start = Instant.now();
         Arrays.sort(tableauSelection);
