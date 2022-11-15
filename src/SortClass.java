@@ -35,6 +35,9 @@ public class SortClass {
     }
     public static void triSelection(int[] tableauSelection){
         Instant start = Instant.now();
+        for (int i = 0; i< tableauSelection.length-1; i++){
+            int min;
+        }
         Instant end = Instant.now();
         long duration = Duration.between(start, end).toMillis();
         System.out.println("Le tri par sélection a pris " + duration + " ms");
