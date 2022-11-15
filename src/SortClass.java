@@ -56,7 +56,6 @@ public class SortClass {
         System.out.println("Le tri par insertion a pris " + duration + " ms");
 
     }
-    // triBulles
     public static void triBulles(int[] tableauSelection){
         Instant start = Instant.now();
         for(int i = 0; i < tableauSelection.length - 1; i++ ){
