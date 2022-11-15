@@ -45,6 +45,11 @@ public class SortClass {
     // triBulles
     public static void triBulles(int[] tableauSelection){
         Instant start = Instant.now();
+        for(int i = 0; i < tableauSelection.length - 1; i++ ){
+            for (int j = i + 1; j < tableauSelection.length; j++)
+                if (tableauSelection[i] > tableauSelection[j])
+                    swap(tableauSelection,i,j);
+        }
         Instant end = Instant.now();
         long duration = Duration.between(start, end).toMillis();
         System.out.println("Le tri par bulles a pris " + duration + " ms");
