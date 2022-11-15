@@ -35,13 +35,16 @@ public class SortClass {
     }
     public static void triSelection(int[] tableauSelection){
         Instant start = Instant.now();
-        for (int i = 0; i< tableauSelection.length-1; i++){
-            int min;
+        for (int i = 0; i< tableauSelection.length-1; i++) {
+            int minInd = i;
+            for (int j = i + 1; j < tableauSelection.length; j++)
+                if (tableauSelection[j] < tableauSelection[minInd])
+                    minInd = j;
+            swap(tableauSelection, minInd, i);
         }
         Instant end = Instant.now();
         long duration = Duration.between(start, end).toMillis();
         System.out.println("Le tri par sélection a pris " + duration + " ms");
-
     }
     public static void triInsertion(int[] tableauSelection){
         Instant start = Instant.now();
