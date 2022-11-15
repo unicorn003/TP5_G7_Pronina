@@ -6,7 +6,7 @@ import java.time.Instant;
 import java.util.Random;
 
 public class SortClass {
-    static int SIZE = Integer.MAX_VALUE / 1000 ;
+    static int SIZE = Integer.MAX_VALUE / 10000 ;
     private static int[] tableau = new int[SIZE];
     // Des instructions qui peuvent prendre du temps
 
