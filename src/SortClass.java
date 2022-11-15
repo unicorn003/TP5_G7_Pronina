@@ -69,10 +69,14 @@ public class SortClass {
     }
     public static void  quickSort(int[] tableauSelection,  int indGauche, int indDroit){
         Instant start = Instant.now();
+        if (indGauche < indDroit) {
+            int partition = partition(tableauSelection, indGauche, indDroit);
+            quickSort(tableauSelection, indGauche, partition-1 );
+            quickSort(tableauSelection, partition + 1, indDroit);
+        }
         Instant end = Instant.now();
         long duration = Duration.between(start, end).toMillis();
         System.out.println("Le tri par quickSort a pris " + duration + " ms");
-
     }
 
     public static void triJava(int[] tableauSelection){
