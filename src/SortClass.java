@@ -1,3 +1,6 @@
+import org.jetbrains.annotations.NotNull;
+
+import java.util.Arrays;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.Random;
@@ -19,5 +22,54 @@ public class SortClass {
         Instant end = Instant.now();
         long duration = Duration.between(start, end).toMillis();
         System.out.println("L’initialisation a pris " + duration + " ms");
+    }
+    public static int @NotNull [] copyTableau(){
+        int[] tableauSelection = new int[SIZE];
+        System.arraycopy(tableau, 0, tableauSelection, 0, SIZE);
+        return  tableauSelection;
+    }
+    public static void triSelection(int[] tableauSelection){
+        Instant start = Instant.now();
+        Instant end = Instant.now();
+        long duration = Duration.between(start, end).toMillis();
+        System.out.println("Le tri par sélection a pris " + duration + " ms");
+
+    }
+    public static void triInsertion(int[] tableauSelection){
+        Instant start = Instant.now();
+        Instant end = Instant.now();
+        long duration = Duration.between(start, end).toMillis();
+        System.out.println("Le tri par insertion a pris " + duration + " ms");
+
+    }
+    // triBulles
+    public static void triBulles(int[] tableauSelection){
+        Instant start = Instant.now();
+        Instant end = Instant.now();
+        long duration = Duration.between(start, end).toMillis();
+        System.out.println("Le tri par bulles a pris " + duration + " ms");
+
+    }
+    public static void  quickSort(int[] tableauSelection,  int indGauche, int indDroit){
+        Instant start = Instant.now();
+        Instant end = Instant.now();
+        long duration = Duration.between(start, end).toMillis();
+        System.out.println("Le tri par bulles a pris " + duration + " ms");
+
+    }
+    public static void  partition(int[] tableauSelection,  int indGauche, int indDroit){
+        Instant start = Instant.now();
+        Instant end = Instant.now();
+        long duration = Duration.between(start, end).toMillis();
+        System.out.println("Le tri par bulles a pris " + duration + " ms");
+
+    }
+    public static void triJava(int[] tableauSelection){
+        Instant start = Instant.now();
+        Arrays.sort(tableauSelection);
+        Instant end = Instant.now();
+        long duration = Duration.between(start, end).toMillis();
+        System.out.println("Le tri par Java a pris " + duration + " ms");
+
     }
 }
