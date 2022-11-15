@@ -50,20 +50,31 @@ public class SortClass {
         System.out.println("Le tri par bulles a pris " + duration + " ms");
 
     }
+    public static void swap(int[] tableauSelection, int i, int j){
+        int temp = tableauSelection[i];
+        tableauSelection[i] = tableauSelection[j];
+        tableauSelection[j]= temp;
+    }
+    public static int  partition(int[] tableauSelection,  int indGauche, int indDroit){
+        int pivot = tableauSelection[indDroit];
+        int i = indGauche - 1;
+        for (int j = indGauche; j <= indDroit - 1; j++) {
+            if (tableauSelection[j] < pivot){
+               i++;
+               swap(tableauSelection, i,j);
+            }
+        }
+        swap(tableauSelection, i+1, indDroit);
+        return i+1;
+    }
     public static void  quickSort(int[] tableauSelection,  int indGauche, int indDroit){
         Instant start = Instant.now();
         Instant end = Instant.now();
         long duration = Duration.between(start, end).toMillis();
-        System.out.println("Le tri par bulles a pris " + duration + " ms");
+        System.out.println("Le tri par quickSort a pris " + duration + " ms");
 
     }
-    public static void  partition(int[] tableauSelection,  int indGauche, int indDroit){
-        Instant start = Instant.now();
-        Instant end = Instant.now();
-        long duration = Duration.between(start, end).toMillis();
-        System.out.println("Le tri par bulles a pris " + duration + " ms");
 
-    }
     public static void triJava(int[] tableauSelection){
         Instant start = Instant.now();
         Arrays.sort(tableauSelection);
